@@ -1,0 +1,486 @@
+<html>
+ <head>
+  <style>
+		body {	
+					font-family:Arial, sans-serif; 
+					font-size:10pt;
+				}	
+		table { font-size:10pt;border-collapse:collapse;}
+		table td, table th {empty-cells: show;}
+		thead{ display:table-header-group;}
+		tfoot{display:table-footer-group;}
+		th {
+			font-size:1.1em;
+			font-weight:bold;
+			padding-left:0.1cm; padding-right:0.1cm; 
+			font-weight:bold; height:2.2em; 
+			white-space:nowrap;
+			page-break-inside:avoid;
+		}
+			
+		td  {
+			vertical-align:top;
+			page-break-inside:avoid;
+			}
+		.drow  td {border-top:0px solid black;padding-top:0.2em;padding-bottom:0.2em;}
+		#logo{margin-bottom:2.0em;width:5cm;}
+		#header {margin-bottom:2.0 em;}
+		#footer {font-size:0.7em;}
+		#drows {margin-top:0.0em;margin-bottom:1.5em;}	
+		#inwords {border:1px solid black;}	
+		#inwords td {padding-top:0.2em;padding-bottom:0.2em;}	
+		#binfo {font-size:1.0em;margin-top:1.5em;}
+		#binfo td {padding-top:0.2em;padding-bottom:0.2em;}	
+		#signatures {margin-top:4.0 em;
+		}
+		#VATTable {margin-top:1.5em;}
+		#VATTable td {white-space:wrap;text-align:right;padding-top:0.3 em;padding-bottom:0.3 em;}
+		#ORIG { text-transform:uppercase; margin-top:0px;padding-left:0.4 cm;font-size:1.8 em;font-weight:bold;}
+		.nw{ white-space:nowrap;}
+		.it{ font-style:italic;}
+		.bt {border-top: 1px solid #000; page-break-after:avoid;}
+		.br {border-right: 1px solid #000;}
+		.bb {border-bottom: 1px solid #000;}
+		.bl {border-left: 1px solid #000;}
+		.vt{vertical-align:top;}
+
+		.pd{padding-left:0.5em; padding-right:0.5em;}
+		.pdl{padding-left:1em;}
+		.pdr{padding-right:1.0em;}
+		.pdt{padding-top:1em;}
+		.pdb{padding-bottom:1em;}
+		.b{ font-weight:bold;}
+		.big{ font-weight:600; font-size:1.2em; }
+		.biger{ font-weight:600; font-size:1.4em; text-transform:uppercase; letter-spacing:0.0em;}
+		.small{ font-size:0.9em;}
+		.smaller{ font-size:0.8em;}
+		.uc{ text-transform:uppercase;}
+		.alc {align:center;}
+		.alr {align:right;}
+		.mtb {margin-top:1.3 em;margin-bottom:1.3em;}
+		
+		
+	@media screen
+	{
+		body{
+			font-family:Arial, sans-serif; font-size:10pt; 
+			font-weight:200; color:#000000; 
+			}
+		table { font-size:10pt;}
+		a:hover {text-decoration: underline;}
+		a:link{text-decoration: none;}
+		a:visited {text-decoration: none;}
+		a:active {text-decoration: underline;}
+		.nopr{display: none;}
+	}
+	
+	@media print
+	{	
+		html, body{
+			height: 100%;
+			min-height: 100%;
+			height: auto !important;
+			}
+		
+		#signed {
+		}
+		#signatures {
+			
+				position:absolute;
+				bottom:60px;
+			
+		}
+		
+		body{
+			font-family:Arial, sans-serif; font-size:10pt; 
+			font-weight:200; color:#000000; 
+			padding-left:0.1cm; padding-right:0.1cm;
+			}
+		.page_break {page-break-after:always; display:table-column-group;}
+		.npr{display: none;}
+		a:visited {text-decoration: none; color:#000000;}
+		a:hover {text-decoration: underline;}
+		a:active {text-decoration: none; color:#000000;}
+		a:link{text-decoration: none; color:#000000;}
+	}
+
+</style>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  </meta>
+  <title>Test INV to PDF </title>
+ </head>
+ <body>
+  <table border="0" width="100%" cellspacing="0" cellpadding="2" id="header">
+   <col width="50%">
+   </col>
+   <col width="25%">
+   </col>
+   <col width="25%">
+   </col>
+   <tr>
+    <td valign="top">
+     <a href="www.schenker.bg" target="_blank">
+      <img border="0" width="250px;" src="BG_logo.jpg">
+      </img>
+     </a>
+     <br/>
+     <span id="ORIG">Оригинал</span>
+    </td>
+    <td align="right" class="nw">Тест EOOD
+     <br/>BG-7009 RUSE
+     <br/>BUL. TUTRAKAN 4
+     <br/>VAT ID: BG12345678
+     <br/>www.test.bg
+    </td>
+    <td align="right" class="nw pdl">
+     <br/>7009  Русе
+     <br/>Бул. Тутракан 4
+     <br/>ДДС №: BG12345678
+     <br/>Булстат: 12345678
+    </td>
+   </tr>
+  </table>
+  <table width="100%">
+   <tr>
+    <td>
+     <table width="100%" border="0">
+      <col width="5%">
+      </col>
+      <col width="45%">
+      </col>
+      <col width="5%">
+      </col>
+      <col width="45%">
+      </col>
+      <tr>
+       <td>ИМЕ :
+											 </td>
+       <td class="b">КНАУФ БЪЛГАРИЯ ЕООД      </td>
+       <td>ИМЕ :
+        <br/>
+       </td>
+       <td class="b">КНАУФ БЪЛГАРИЯ ЕООД      
+        <br/>
+       </td>
+      </tr>
+      <tr>
+       <td class="vt">ГРАД :
+											</td>
+       <td class="b">СОФИЯ
+        <span class="pdl">1618</span>
+       </td>
+       <td class="vt">ГРАД :
+        <br/>
+       </td>
+       <td class="b">СОФИЯ
+        <span class="pdl">1618</span>
+        <br/>
+       </td>
+      </tr>
+      <tr>
+       <td>АДРЕС :
+											</td>
+       <td class="b">УЛ.  ВРЪХ 27</td>
+       <td>АДРЕС :
+        <br/>
+       </td>
+       <td class="b">УЛ. ВРЪХ 27
+        <br/>
+       </td>
+      </tr>
+      <tr>
+       <td colspan="4">
+        <br/>
+       </td>
+      </tr>
+      <tr>
+       <td colspan="4">
+        <br/>
+       </td>
+      </tr>
+      <tr>
+       <td class="nw">ИН :
+										</td>
+       <td class="b">987654321</td>
+       <td colspan="2">
+        <br/>
+       </td>
+      </tr>
+      <tr>
+       <td class="nw">ИН по ДДС: </td>
+       <td class="b">BG987654321</td>
+       <td colspan="2">
+        <br/>
+       </td>
+      </tr>
+      <tr>
+       <td colspan="2" class="pdl">
+        <span class="pdl">
+        </span>Код на клиента: 
+        <span class="pdl">200977</span>
+       </td>
+       <td>МАНИФЕСТ № :
+									</td>
+       <td class="b"></td>
+      </tr>
+      <tr>
+       <td colspan="2">
+        <br/>
+       </td>
+       <td class="nw">НАША ПОЗИЦИЯ :
+									</td>
+       <td class="b">12/07/60/001/RR/RR/00</td>
+      </tr>
+      <tr>
+       <td colspan="2">
+        <br/>
+       </td>
+       <td class="nw">
+       </td>
+       <td class="b">
+       </td>
+      </tr>
+      <tr>
+       <td colspan="2">
+        <br/>
+       </td>
+       <td class="nw" align="right">Т  &#38; Т :
+									</td>
+       <td class="b"></td>
+      </tr>
+      <tr>
+       <td colspan="4">
+        <table width="97%" class="mtb" align="center">
+         <tr>
+          <td width="85%" class="biger nw pdt">ФАКТУРА
+														№  
+														010101010101 / 01.01.2012</td>
+          <td width="15%" class="biger nw pdt">
+           <div align="right">
+            <span id="ORIG">
+            </span>
+           </div>
+          </td>
+         </tr>
+        </table>
+        <table width="97%">
+        </table>
+       </td>
+      </tr>
+     </table>
+    </td>
+   </tr>
+  </table>
+  <p></p>
+  <table width="97%" border="1px;" align="center">
+   <tbody>
+    <col width="27%">
+    </col>
+    <col width="23%">
+    </col>
+    <col width="23%">
+    </col>
+    <col width="27%">
+    </col>
+    <tr>
+     <td align="center">Камион №:</td>
+     <td align="center">Дата на експедиране</td>
+     <td align="center">От позиция</td>
+     <td align="center">През пункт</td>
+    </tr>
+    <tr class="b">
+     <td align="center"></td>
+     <td align="center">  .  .    </td>
+     <td align="center"></td>
+     <td align="center"></td>
+    </tr>
+    <tr>
+     <td align="center">СЪДЪРЖАНИЕ</td>
+     <td align="center">Количество</td>
+     <td align="center">Бруто тегло</td>
+     <td align="center">Куб.м. / Л.м.</td>
+    </tr>
+    <tr class="b">
+     <td align="center"></td>
+     <td align="center"></td>
+     <td align="center">0.000</td>
+     <td align="center"></td>
+    </tr>
+   </tbody>
+  </table>
+  <table width="100%" id="drows" class="bord not_collapse" cellpadding="2" cellspacing="0" align="center">
+   <col width="52%">
+   </col>
+   <col width="4%">
+   </col>
+   <col width="10%">
+   </col>
+   <col width="33%">
+   </col>
+   <thead>
+    <tr>
+     <th class="bb bt bl"> ОПИСАНИЕ </th>
+     <th class="bb bt bl"> % ДДС </th>
+     <th class="bb bt">СУМА </th>
+     <th class="bb bt br">
+      <br/>
+     </th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr class="drow">
+     <td align="left">МИТНИЧЕСКО ПРЕДСТАВЯНЕ                                      </td>
+     <td class="nw pdr" align="right">20</td>
+     <td class="nw pdr" align="right">70.00  ЛВ. </td>
+     <td align="left"></td>
+    </tr>
+    <tr class="drow">
+     <td align="left">BLDL180/BL280RA                                             </td>
+     <td class="nw pdr" align="right">
+      <br/>
+     </td>
+     <td class="nw pdr" align="right">
+      <br/>
+     </td>
+     <td align="left"></td>
+    </tr>
+    <tr>
+     <td class="nw bt"> Необлагаема стойност </td>
+     <td class="bt pdr" align="right">
+      <br/>
+     </td>
+     <td align="right" class="nw pdr bt">
+     </td>
+     <td class="bt">
+      <br/>
+     </td>
+    </tr>
+    <tr>
+     <td class="nw"> Oблагаема стойност </td>
+     <td class="pdr" align="right">0
+      <br/>
+     </td>
+     <td align="right" class="pdr nw">170.00 ЛВ. </td>
+     <td>
+      <br/>
+     </td>
+    </tr>
+    <tr>
+     <td class="nw bb">ДДС </td>
+     <td class="bb pdr" align="right">0
+      <br/>
+     </td>
+     <td align="right" class="pdr bb nw">114.00 ЛВ. </td>
+     <td class="bb">
+      <br/>
+     </td>
+    </tr>
+    <tr>
+     <td class="nw">Обща стойност </td>
+     <td class="pdr" align="right">0
+      <br/>
+     </td>
+     <td align="right" class="pdr nw">184.00 ЛВ. </td>
+     <td>
+      <br/>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <table width="100%" cellpadding="2" cellspacing="0" id="inwords" style="page-break-inside:avoid;">
+   <col width="50%">
+   </col>
+   <col width="50%">
+   </col>
+   <tr>
+    <td colspan="2" class="big bb">СЛОВОМ: ОСЕМДЕСЕТ И ЧЕТИРИ ЛВ.</td>
+   </tr>
+   <tr>
+    <td class="b">Дата на падеж: 12.02.2012</td>
+    <td class="big">ПЛАЩАНЕ: ПО БАНКОВ ПЪТ</td>
+   </tr>
+  </table>
+  <table width="100%" cellpadding="2" cellspacing="0" id="binfo" style="page-break-inside:avoid;">
+   <col width="50%">
+   </col>
+   <col width="50%">
+   </col>
+   <tr>
+    <td>БАНКА Райфайзенбанк</td>
+    <td class="b">Дата на данъчното събитие : 
+							27.01.2012</td>
+   </tr>
+   <tr>
+    <td>БАНКОВ КОД: BGN</td>
+    <td class="b">
+     <br/>
+    </td>
+   </tr>
+   <tr>
+    <td class="pdl">СМЕТКА: </td>
+    <td>СЪСТАВИЛ: ПЕТЯ ПЕТРОВА</td>
+   </tr>
+   <tr>
+    <td class="pdl">IBAN: BG01RZBB1234567890</td>
+    <td>ПОДПИС НА СЪСТАВИТЕЛЯ: 
+     <a href="" onclick="try {return DefCertInfo(cert);}catch(e) {alert('Моля, регистрирайте CAPICOM.DLL'); return false;}">Петър Райков</a>
+    </td>
+   </tr>
+   <tr>
+    <td class="pdl">BIC: RZBBBGSF</td>
+    <td>
+     <br/>
+    </td>
+   </tr>
+   <tr>
+    <td>ИН по ДДС: BG123456789</td>
+    <td>ПОЛУЧИЛ: </td>
+   </tr>
+   <tr>
+    <td>
+     <br/>
+    </td>
+    <td>ПОДПИС НА ПОЛУЧАТЕЛЯ: </td>
+   </tr>
+  </table>
+  <div style="text-align:center;padding-top:1.2em; width:100%;" id="signed">
+   <i>
+    <b class="nw c">
+    </b>
+   </i>
+  </div>
+  <p></p>
+  <table border="0" width="100%" cellspacing="0" cellpadding="1" id="footer">
+   <col width="10%">
+   </col>
+   <col width="24%">
+   </col>
+   <col width="19%">
+   </col>
+   <col width="22%">
+   </col>
+   <col width="9%">
+   </col>
+   <tr>
+    <td valign="middle" align="center">
+     <img src="BG_TUV.jpg">
+     </img>
+    </td>
+    <td>ТЕСТ ЕООД
+     <br/>7009  РУСЕ
+     <br/>бул. Тутракан 4
+    </td>
+    <td>
+								ТЕЛ 082/123456
+     <br/>
+								ФАКС 082/123456
+     <br/>www.test.bg
+    </td>
+    <td>Седалище на фирмата е София. Търговски регистър при СГС ф.д. 12345/1990</td>
+    <td>
+     <br/>
+    </td>
+   </tr>
+  </table>
+ </body>
+</html>
